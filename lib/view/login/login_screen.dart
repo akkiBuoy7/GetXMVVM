@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:getx_mvvm/res/components/custom_round_button_widget.dart';
 import 'package:getx_mvvm/res/strings/strings.dart';
 import 'package:getx_mvvm/utils/utils.dart';
-import 'package:getx_mvvm/view_models/controller/login_view_model.dart';
+import 'package:getx_mvvm/view_models/controller/login/login_view_model.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);

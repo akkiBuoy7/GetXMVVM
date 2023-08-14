@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:getx_mvvm/res/localization/languages.dart';
 import 'package:getx_mvvm/res/routes/routes.dart';
 import 'package:getx_mvvm/res/routes/routes_name.dart';
-import 'package:getx_mvvm/view/splash_screen.dart';
+import 'package:getx_mvvm/view/splash/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());

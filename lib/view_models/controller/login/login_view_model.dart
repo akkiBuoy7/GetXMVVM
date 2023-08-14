@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:getx_mvvm/repository/login_repository/login_repository.dart';
 import 'package:getx_mvvm/utils/utils.dart';
 
+import '../../../res/routes/routes_name.dart';
+
 class LoginViewModel extends GetxController {
   final _repo = LoginRepository();
 
@@ -25,6 +27,7 @@ class LoginViewModel extends GetxController {
       if (value['error'] == 'user not found') {
         AppUtils.snackBar('login', value['error']);
       } else {
+        Get.toNamed(RouteNames.homeScreen);
         AppUtils.snackBar('login', "Success");
       }
     }).onError((error, stackTrace) {
