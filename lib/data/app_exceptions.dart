@@ -14,10 +14,18 @@ class InternetException extends AppException{
   InternetException([String? message]):super(message,"No internet");
 }
 
-class RequestTimeout extends AppException{
-  RequestTimeout([String? message]):super(message,"Request Time out");
+class RequestTimeoutException extends AppException{
+  RequestTimeoutException([String? message]):super(message,"Request Time out");
 }
 
 class ServerException extends AppException{
   ServerException([String? message]):super(message,"Internal Server Error");
+}
+
+class InvalidUrlException extends AppException{
+  InvalidUrlException([String? message]):super(message,"Invalid url error");
+}
+
+class FetchDataException extends AppException{
+  FetchDataException([String? message]):super(message,"");
 }
