@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:getx_mvvm/res/colors/AppColors.dart';
 
-class Utils {
+class AppUtils {
   static void fieldFocusChange(
       BuildContext context, FocusNode currentNode, FocusNode nextNode) {
     currentNode.unfocus();
