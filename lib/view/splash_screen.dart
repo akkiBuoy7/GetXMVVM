@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:getx_mvvm/res/assets/image_assets.dart';
 import 'package:getx_mvvm/res/strings/strings.dart';
 import 'package:getx_mvvm/utils/utils.dart';
+import 'package:getx_mvvm/view_models/services/splash_service.dart';
 
 import '../res/components/custom_round_button_widget.dart';
 import '../res/components/general_exception_widget.dart';
@@ -17,21 +18,26 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  SplashService splashService = SplashService();
+
+  @override
+  void initState() {
+    splashService.isLogin();
+    super.initState();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            title: Text(
-          AppStrings.app.tr,
-        )),
-        body: CustomRoundButtonWidget(title: 'Click',
-          loading: true,
-          onPress: () {
-          AppUtils.snackBar("title", "message");
-        },)
-        // Center(
-        //   child: Image.asset(AppImageAssets.splashLogo),
-        // ),
-        );
+      appBar: AppBar(
+          title: Text(
+        AppStrings.app.tr,
+      )),
+      body: Center(
+        child: Image.asset(AppImageAssets.splashLogo),
+      ),
+    );
   }
 }
