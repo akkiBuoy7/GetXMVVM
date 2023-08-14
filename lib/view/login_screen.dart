@@ -22,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(AppStrings.login),
+        title: const Text(AppStrings.login),
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -39,7 +39,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     focusNode: loginViewModel.emailFocusNode.value,
                     validator: (value) {
                       if (value!.isEmpty) {
-                        AppUtils.toastMessageBottom(AppStrings.emailValidation);
+                        AppUtils.toastMessageBottom(
+                            AppStrings.emailValidation.tr);
+                        return AppStrings.emailValidation.tr;
                       }
                       return null;
                     },
@@ -48,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(2))),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   TextFormField(
@@ -58,7 +60,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     validator: (value) {
                       if (value!.isEmpty) {
                         AppUtils.toastMessageBottom(
-                            AppStrings.passwordValidation);
+                            AppStrings.passwordValidation.tr);
+                        return AppStrings.passwordValidation.tr;
                       }
                       return null;
                     },
@@ -70,17 +73,26 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
-            CustomRoundButtonWidget(
+            Obx(() => CustomRoundButtonWidget(
+                loading: loginViewModel.loading.value,
                 title: AppStrings.login.tr,
                 onPress: () {
-                  if (_formKey.currentState!.validate()) {}
-                })
+                  if (_formKey.currentState!.validate()) {
+                    loginViewModel.loginUser();
+                  }
+                }))
           ],
         ),
       ),
     );
   }
 }
+/*
+{
+    "email": "eve.holt@reqres.in",
+    "password": "cityslicka"
+}
+ */
